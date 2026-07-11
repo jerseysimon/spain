@@ -118,6 +118,25 @@
   .t-slate .badge{background:var(--slate)} .t-slate .leg-card{border-left-color:var(--slate)}
   .t-slate .tag{background:var(--slate-bg);color:var(--slate-ink)}
 
+  /* ---- guidebook refs ---- */
+  .pref{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.58rem;
+    letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;
+    background:#EEE7D9;color:var(--sun);border:1px solid #E4D9C2;white-space:nowrap}
+  .detour{margin:16px 0 0;padding:12px 15px;border-radius:10px;background:#F6EFE0;
+    border:1px solid #EADEC5;font-size:.92rem;line-height:1.55}
+  .detour b{color:var(--sun)}
+  .gb{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 4px}
+  .gb-grp{padding:18px 24px;border-bottom:1px solid var(--line-soft)}
+  .gb-grp:last-child{border-bottom:0}
+  .gb-grp>h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--sea);margin:0 0 10px}
+  .gb-item{display:flex;gap:14px;padding:7px 0;align-items:baseline;border-top:1px dotted var(--line-soft)}
+  .gb-item:first-of-type{border-top:0}
+  .gb-item .gp{font-family:var(--mono);font-size:.62rem;color:var(--sun);flex:none;width:46px;padding-top:3px}
+  .gb-item .gt{font-size:.96rem;line-height:1.5}.gb-item .gt b{font-weight:600}
+  .gb-item .gt span{color:var(--ink-soft)}
+  .gb-note{padding:4px 24px 14px;color:var(--ink-soft);font-size:.88rem}
+
   /* ---- decisions ---- */
   .decide{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 4px}
   .qrow{display:flex;gap:16px;padding:20px 24px;border-bottom:1px solid var(--line-soft)}
@@ -160,6 +179,7 @@
       <a href="#map">Route</a>
       <a href="#plan">Itinerary</a>
       <a href="#decide">Decisions</a>
+      <a href="#guide">Guidebook</a>
       <a href="#book">Before we book</a>
     </nav>
   </div>
@@ -243,21 +263,22 @@
       <div class="leg t-sea reveal">
         <div class="badge">1</div>
         <div class="leg-card">
-          <div class="leg-top"><h3>Basque Country</h3><span class="dates">15–17 Aug · 2 nights</span><span class="tag">Sea &amp; food</span></div>
+          <div class="leg-top"><h3>Basque Country</h3><span class="dates">15–17 Aug · 2 nights</span><span class="pref">LP p379</span><span class="tag">Sea &amp; food</span></div>
           <p class="drive">Ferry docks Bilbao · San Sebastián ~1 hr along the coast</p>
           <div class="rows">
             <div><h4>What we'll do</h4><p>Half a day in Bilbao for the Guggenheim — the building and the giant flower-dog "Puppy" outside. Then La Concha beach and the creaky old funicular fairground up Monte Igueldo in San Sebastián.</p></div>
             <div><h4>For the kids</h4><p>The clifftop fairground, gentle surf at Zurriola, and a pintxos crawl where you order one, eat, move on — dinner as a treasure hunt.</p></div>
-            <div><h4>Good food</h4><p>Pintxos through the old town, chilled txakoli, and whole turbot grilled over coals down the coast at Getaria.</p></div>
+            <div><h4>Good food</h4><p>San Sebastián is the guidebook's number-two food pick — pintxos through the Parte Vieja, chilled txakoli, and whole turbot grilled over coals down the coast at Getaria.</p></div>
             <div><h4>Where to stay</h4><p>Campsites along the Basque coast between the two cities; book ahead for mid-August.</p></div>
           </div>
+          <p class="detour"><b>Optional detour — La Rioja (LP p398).</b> Spain's premier wine country sits just south of here, roughly on the way toward the mountains. Bodega-hopping with architecture as striking as the wine — one lazy afternoon's worth if we fancy it.</p>
         </div>
       </div>
 
       <div class="leg t-pine reveal">
         <div class="badge">2</div>
         <div class="leg-card">
-          <div class="leg-top"><h3>Ordesa y Monte Perdido</h3><span class="dates">17–20 Aug · 3 nights</span><span class="tag">Mountains</span></div>
+          <div class="leg-top"><h3>Ordesa y Monte Perdido</h3><span class="dates">17–20 Aug · 3 nights</span><span class="pref">LP p340</span><span class="tag">Mountains</span></div>
           <p class="drive">~3.5–4 hr drive down to Torla · base in the valley</p>
           <div class="rows">
             <div><h4>What we'll do</h4><p>The Ordesa valley walk toward the Cola de Caballo waterfall, past the Gradas de Soaso cascades. The flat lower river section is glorious and we turn back whenever we've had enough.</p></div>
@@ -271,13 +292,13 @@
       <div class="leg t-pine reveal">
         <div class="badge">3</div>
         <div class="leg-card">
-          <div class="leg-top"><h3>Aigüestortes &amp; Sant Maurici</h3><span class="dates">20–22 Aug · 2 nights</span><span class="tag">Mountains</span></div>
+          <div class="leg-top"><h3>Aigüestortes &amp; Sant Maurici</h3><span class="dates">20–22 Aug · 2 nights</span><span class="pref">LP p308</span><span class="tag">Mountains</span></div>
           <p class="drive">~3 hr of gorgeous mountain driving east · base at Espot</p>
           <div class="rows">
             <div><h4>What we'll do</h4><p>A 4×4 jeep-taxi from Espot drops us minutes from the Estany de Sant Maurici, with the twin Encantats peaks behind it. Easy loops around the lake for all four of us.</p></div>
             <div><h4>For the kids</h4><p>The jeep-taxi ride is half the fun, and the cool mountain air is a blessing if the plains are baking.</p></div>
             <div><h4>Bigger walks</h4><p>This is the home of the Carros de Foc refuge circuit — proper hut-to-hut country to file away for a future trip.</p></div>
-            <div><h4>Where to stay</h4><p>Campsites around Espot; same vehicle rules — you walk or jeep into the park core.</p></div>
+            <div><h4>Where to stay</h4><p>Campsites around Espot; same vehicle rules — you walk or jeep into the park core. Val d'Aran (LP p310) is next door — parked as a winter-ski idea, not this trip.</p></div>
           </div>
         </div>
       </div>
@@ -293,6 +314,7 @@
             <div><h4>Good food</h4><p>Seafood and Collioure anchovies; a swim and a taste of sweet Banyuls wine down the coast.</p></div>
             <div><h4>Where to stay</h4><p>Big family campsites around Argelès-sur-Mer — the busiest to book, so lock it in early.</p></div>
           </div>
+          <p class="detour"><b>Just over the border — the Costa Brava.</b> The Catalan coves you logged sit right below Collioure. Easy to fold in a day on the Spanish side, or base there instead if we'd rather have Spanish prices and quieter beaches.</p>
         </div>
       </div>
 
@@ -332,11 +354,41 @@
     <h2 class="reveal">Decisions to make together</h2>
     <p class="sub reveal">The plan holds together as-is, but these are the real forks in the road. Worth a chat over dinner before anything's booked.</p>
     <div class="decide reveal">
-      <div class="qrow"><span class="qn">1</span><div><h4>Picos de Europa — in or out?</h4><p>Spectacular, but it's ~2.5 hr <em>west</em> of Bilbao — the wrong way for a Pyrenees-then-Med trip. Skip it this time, or swap it in and give up a chunk of the French Med?</p></div></div>
+      <div class="qrow"><span class="qn">1</span><div><h4>Picos de Europa — in or out? <span class="pref">LP p412</span></h4><p>The guidebook's top outdoor pick — kayaking down the Río Sella and walking past high mountain lakes, right up our street. But it's ~2.5 hr <em>west</em> of Bilbao, the wrong way for a Pyrenees-then-Med trip. Skip it this time, or swap it in and give up a chunk of the French Med?</p></div></div>
       <div class="qrow"><span class="qn">2</span><div><h4>Both mountain parks, or just Ordesa?</h4><p>Two back-to-back mountain moves is the most tiring stretch with the kids. Ordesa is the more jaw-dropping of the two if we want to cut one and slow down.</p></div></div>
       <div class="qrow"><span class="qn">3</span><div><h4>A real hut night, or day-walks with a bail-out?</h4><p>Sleeping in a mountain refuge is a brilliant idea and a big ask for a 7-year-old. Safer bet: day-hikes to a refuge and back, with the overnight as a "if the weather's perfect" bonus.</p></div></div>
       <div class="qrow"><span class="qn">4</span><div><h4>How many pure beach days?</h4><p>Four nights on the Med gives real downtime after the mountains. Trim to three if we'd rather have a slower drive north.</p></div></div>
       <div class="qrow"><span class="qn">5</span><div><h4>Disney: one day or two?</h4><p>One day fits the schedule; a second means cutting a night somewhere earlier. Depends how much the kids build it up.</p></div></div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="sec-head reveal"><span class="k">From the guidebook</span></div>
+    <h2 class="reveal">Everything we shortlisted</h2>
+    <p class="sub reveal">The picks we logged from the guidebook, with page numbers so we can flip straight to them. The top group fed this route; the rest are parked for another Spanish trip.</p>
+    <div class="gb reveal">
+      <div class="gb-grp">
+        <h4>On or near this route</h4>
+        <div class="gb-item"><span class="gp">p379</span><span class="gt"><b>San Sebastián</b> — <span>pintxos and the Parte Vieja crawl; the guidebook's #2 food pick. → Leg 1.</span></span></div>
+        <div class="gb-item"><span class="gp">p398</span><span class="gt"><b>La Rioja</b> — <span>premier wine country with dazzling modern bodegas, just south of the Basque coast. → optional detour, Leg 1.</span></span></div>
+        <div class="gb-item"><span class="gp">p340</span><span class="gt"><b>Ordesa y Monte Perdido</b> — <span>the Pyrenees' most spectacular walking; #2 outdoor pick. → Leg 2.</span></span></div>
+        <div class="gb-item"><span class="gp">p308</span><span class="gt"><b>Aigüestortes i Sant Maurici</b> — <span>hiking among lakes and peaks; #4 outdoor pick. → Leg 3.</span></span></div>
+        <div class="gb-item"><span class="gp">p310</span><span class="gt"><b>Val d'Aran</b> — <span>skiing next door to Aigüestortes — a winter idea, not this trip.</span></span></div>
+        <div class="gb-item"><span class="gp">p412</span><span class="gt"><b>Picos de Europa</b> — <span>Río Sella kayaking and high lakes; #1 outdoor pick, but west of Bilbao. → Decision 1.</span></span></div>
+        <div class="gb-item"><span class="gp">—</span><span class="gt"><b>Costa Brava coves</b> — <span>Catalan coves just over the border from Collioure. → near Leg 4.</span></span></div>
+      </div>
+      <div class="gb-grp">
+        <h4>Parked for another trip</h4>
+        <div class="gb-item"><span class="gp">p143</span><span class="gt"><b>Ribera del Duero</b> — <span>fine reds and roast lamb (lechazo), but it pulls south toward Burgos — off this route.</span></span></div>
+        <div class="gb-item"><span class="gp">p258</span><span class="gt"><b>Disfrutar, Barcelona</b> — <span>Michelin destination dining.</span></span></div>
+        <div class="gb-item"><span class="gp">p302</span><span class="gt"><b>El Celler de Can Roca, Girona</b> — <span>Michelin destination dining.</span></span></div>
+        <div class="gb-item"><span class="gp">p459</span><span class="gt"><b>A Coruña, Galicia</b> — <span>seafood, especially zamburiñas (scallops).</span></span></div>
+        <div class="gb-item"><span class="gp">p515</span><span class="gt"><b>Seville tapas</b> — <span>Casa Morales and Antigua Taberna de las Escobas.</span></span></div>
+        <div class="gb-item"><span class="gp">p550</span><span class="gt"><b>Sierra de Grazalema, Cádiz</b> — <span>cycling and hiking among Andalucian white villages.</span></span></div>
+        <div class="gb-item"><span class="gp">p593</span><span class="gt"><b>Sierra Nevada, Granada</b> — <span>mainland Spain's highest peak, Mulhacén (3,479 m).</span></span></div>
+        <div class="gb-item"><span class="gp">—</span><span class="gt"><b>More beaches</b> — <span>Tarifa (kitesurfing), Formentera (white sand), Cabo de Gata (gold sand), Illas Cíes (camping-only).</span></span></div>
+      </div>
+      <p class="gb-note">Page numbers refer to the guidebook. To add your own photos, drop the image files alongside this page and I'll wire each one to its entry — or attach them on the matching cards in the Notion version.</p>
     </div>
   </section>
 

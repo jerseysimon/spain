@@ -182,26 +182,79 @@
     html{scroll-behavior:auto}}
   @media print{header.top{display:none}.reveal{opacity:1;transform:none}
     .leg-card,.decide,.map-frame{break-inside:avoid}body{background:#fff}}
+
+  /* ---- app shell / sidebar nav ---- */
+  .app{display:flex;align-items:flex-start;min-height:100vh}
+  .side{position:sticky;top:0;height:100vh;width:238px;flex:none;z-index:30;
+    border-right:1px solid var(--line);background:rgba(238,238,230,.72);backdrop-filter:blur(7px)}
+  .side-inner{display:flex;flex-direction:column;height:100%;padding:26px 20px}
+  .side-brand{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink);border:0;line-height:1.4;margin-bottom:28px}
+  .side-brand span{display:block;color:var(--ink-faint);font-size:.64rem;margin-top:3px}
+  .side-nav{display:flex;flex-direction:column;gap:2px}
+  .side-nav a{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--ink-soft);border:0;padding:9px 12px;border-radius:8px;transition:background .15s,color .15s}
+  .side-nav a:hover{background:var(--line-soft);color:var(--ink)}
+  .side-nav a.active{background:var(--sea);color:#fff}
+  .side-foot{margin-top:auto;color:var(--ink-faint);line-height:1.5}
+  .main{flex:1;min-width:0}
+  .main-inner{max-width:900px;margin:0 auto;padding:0 44px}
+  .view{display:none}
+  .view.active{display:block}
+  .view > section,.view > .hero{padding-top:40px;padding-bottom:64px}
+  @media(max-width:820px){
+    .app{display:block}
+    .side{position:sticky;height:auto;width:auto}
+    .side-inner{flex-direction:row;align-items:center;gap:14px;padding:9px 16px;overflow-x:auto}
+    .side-brand{margin-bottom:0;white-space:nowrap;flex:none}
+    .side-brand span{display:inline;margin:0 0 0 6px}
+    .side-nav{flex-direction:row;gap:2px;flex:none}
+    .side-nav a{white-space:nowrap;padding:7px 10px}
+    .side-foot{display:none}
+    .main-inner{padding:0 20px}
+  }
+
+  /* ---- beach base ---- */
+  .cmp-wrap{overflow-x:auto;margin:0 0 8px}
+  .cmp{width:100%;border-collapse:collapse;font-size:.9rem}
+  .cmp th,.cmp td{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .cmp th{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+  .cmp .rt{font-weight:600;white-space:nowrap}
+  .cmp .stars{color:var(--sun);white-space:nowrap;font-family:var(--mono);font-size:.72rem}
+  .grp-h{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:30px 0 10px}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.opts{grid-template-columns:1fr}}
+  .opt{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:14px;padding:16px 18px}
+  .opt.fr{border-left-color:var(--slate)} .opt.es{border-left-color:var(--sun)}
+  .opt h4{margin:0 0 2px;font-size:1.04rem;font-weight:600}
+  .opt .meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.03em;color:var(--ink-faint);margin:0 0 9px}
+  .opt p{margin:0 0 8px;font-size:.9rem;line-height:1.5}
+  .opt .hu{color:var(--ink-soft)}
+  .opt .flag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;color:var(--sea-ink);margin:0}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <span class="brand">Bilbao → Calais · Aug 2026</span>
-    <nav>
-      <a href="#map">Route</a>
-      <a href="#plan">Itinerary</a>
-      <a href="#decide">Decisions</a>
-      <a href="#guide">Guidebook</a>
-      <a href="#book">Before we book</a>
-    </nav>
-  </div>
-</header>
-
-<div class="wrap">
-
-  <div class="hero reveal">
+<div class="app">
+  <aside class="side">
+    <div class="side-inner">
+      <a class="side-brand" href="#overview">Bilbao → Calais<span>15–31 Aug 2026</span></a>
+      <nav class="side-nav">
+        <a href="#overview" data-view="overview">Overview</a>
+        <a href="#route" data-view="route">The route</a>
+        <a href="#itinerary" data-view="itinerary">Itinerary</a>
+        <a href="#beach" data-view="beach">Beach base</a>
+        <a href="#decisions" data-view="decisions">Decisions</a>
+        <a href="#guidebook" data-view="guidebook">Guidebook</a>
+        <a href="#book" data-view="book">Before we book</a>
+      </nav>
+      <p class="side-foot mono">A working draft —<br>nothing's booked yet</p>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="main-inner">
+      <section class="view" id="view-overview">
+        <div class="hero reveal">
     <p class="eyebrow">Family campervan tour · summer 2026</p>
     <h1>Northern Spain, the Pyrenees &amp; the Mediterranean</h1>
     <p class="lede">Off the boat at <b>Bilbao</b> on Saturday 15 August, home from <b>Calais</b> on Monday 31st. An eastward arc: Basque beaches, two high-Pyrenees national parks, the French Med, then a run north to a day at Disneyland. Built around what we love — <b>walking, beaches, good food, and things the kids will actually want to do</b>.</p>
@@ -212,8 +265,9 @@
       <div class="stat"><div class="n">~2,000</div><div class="l">km on the road</div></div>
     </div>
   </div>
-
-  <section id="map" class="reveal">
+      </section>
+      <section class="view" id="view-route">
+        <section id="map" class="reveal">
     <div class="sec-head"><span class="k">The route</span></div>
     <h2>One long arc, west to east, then north</h2>
     <p class="sub">No backtracking — we ride the coast, climb into the mountains, drop back to the sea, then head up through France. Colours mark the kind of leg.</p>
@@ -246,9 +300,9 @@
           <li class="stop"><span class="num">3</span><span><span class="nm">Torla-Ordesa</span><span class="dt">17–20 Aug</span></span></li>
           <li class="stop"><span class="num">4</span><span><span class="nm">Espot · Aigüestortes</span><span class="dt">20–22 Aug</span></span></li>
           <li class="keyleg"><span class="dot" style="background:var(--sea)"></span>French Med</li>
-          <li class="stop"><span class="num">5</span><span><span class="nm">Collioure</span><span class="dt">22–26 Aug</span></span></li>
+          <li class="stop"><span class="num">5</span><span><span class="nm">Collioure</span><span class="dt">22–27 Aug</span></span></li>
           <li class="keyleg"><span class="dot" style="background:var(--slate)"></span>The run north</li>
-          <li class="stop"><span class="num">6</span><span><span class="nm">Carcassonne</span><span class="dt">26 Aug</span></span></li>
+          <li class="stop"><span class="num">6</span><span><span class="nm">Carcassonne</span><span class="dt">27 Aug</span></span></li>
           <li class="stop"><span class="num">7</span><span><span class="nm">Millau viaduct</span><span class="dt">27–28 Aug</span></span></li>
           <li class="stop"><span class="num">8</span><span><span class="nm">Disneyland Paris</span><span class="dt">29–30 Aug</span></span></li>
           <li class="stop"><span class="num">9</span><span><span class="nm">Calais</span><span class="dt">31 Aug · ferry home</span></span></li>
@@ -257,8 +311,9 @@
       </div>
     </div>
   </section>
-
-  <section id="plan">
+      </section>
+      <section class="view" id="view-itinerary">
+        <section id="plan">
     <div class="sec-head reveal"><span class="k">The itinerary</span></div>
     <h2 class="reveal">Six legs, stop by stop</h2>
     <p class="sub reveal">Each block is a base we settle into for a few nights. Nights are a starting point, not gospel — we can move a day between legs once we see how the kids are travelling.</p>
@@ -321,7 +376,7 @@
       <div class="leg t-sea reveal">
         <div class="badge">4</div>
         <div class="leg-card">
-          <div class="leg-top"><h3>French Mediterranean</h3><span class="dates">22–26 Aug · 4 nights</span><span class="tag">Beach &amp; unwind</span></div>
+          <div class="leg-top"><h3>French Mediterranean</h3><span class="dates">22–27 Aug · 5 nights</span><span class="tag">Beach &amp; unwind</span></div>
           <p class="drive">~2.5–3 hr over the border to the coast · base near Collioure / Argelès</p>
           <div class="leg-photos">
             <figure class="leg-photo"><img src="images/collioure.jpg" alt="Collioure's stone bell tower rising from the sea beside a little beach" loading="lazy"><figcaption>Collioure, Côte Vermeille</figcaption></figure>
@@ -339,8 +394,8 @@
       <div class="leg t-slate reveal">
         <div class="badge">5</div>
         <div class="leg-card">
-          <div class="leg-top"><h3>The run north</h3><span class="dates">26–29 Aug · 3 nights en route</span><span class="tag">On the road</span></div>
-          <p class="drive">~8–9 hr to Paris, broken over two easy days</p>
+          <div class="leg-top"><h3>The run north</h3><span class="dates">27–29 Aug · 2 nights en route</span><span class="tag">On the road</span></div>
+          <p class="drive">~8–9 hr to Paris, kept short — two nights, two easy days</p>
           <div class="leg-photos">
             <figure class="leg-photo"><img src="images/carcassonne.jpg" alt="The floodlit medieval walls and towers of the Cité de Carcassonne at dusk" loading="lazy"><figcaption>Carcassonne, floodlit</figcaption></figure>
             <figure class="leg-photo"><img src="images/millau.jpg" alt="The Millau viaduct spanning a misty valley, its pylons rising above the clouds" loading="lazy"><figcaption>Millau viaduct</figcaption></figure>
@@ -373,8 +428,92 @@
 
     </div>
   </section>
+      </section>
+      <section class="view" id="view-beach">
+        <section id="beach" class="reveal">
+    <div class="sec-head"><span class="k">Beach base</span></div>
+    <h2>A couple of nights off the van, all-inclusive</h2>
+    <p class="sub">Since we've pushed the balance south, it's worth having a proper beach base lined up — for a family of four (kids 7 and 10). True all-inclusive (meals <em>and</em> drinks) is rare in France; the French equivalent is the <b>club</b> model — half/full board plus kids' clubs and pools. Spain does proper all-inclusive far more cheaply, and the Costa Brava starts about an hour south of Collioure. The trade-off in Spain is proximity vs scale.</p>
 
-  <section id="decide">
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th>Option</th><th>Where</th><th>Google</th><th>Format</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td class="rt">FR1 · Belambra "Les Ayguades"</td><td>Gruissan</td><td class="stars">★3.3 (628)</td><td>Club, half/full board</td><td>Slots into the route; beach + kids' clubs</td></tr>
+          <tr><td class="rt">FR2 · Belambra "Les Salins"</td><td>Port Camargue</td><td class="stars">★4.0 (1,030)</td><td>Club, premium</td><td>Best-rated French option; new, big pools</td></tr>
+          <tr><td class="rt">FR3 · Club Med Opio</td><td>Opio, Provence</td><td class="stars">★4.1 (2,620)</td><td>True all-inclusive</td><td>Full drinks-included experience (off-route)</td></tr>
+          <tr><td class="rt">ES1 · Cala Montjoi</td><td>Roses</td><td class="stars">★4.4 (3,784)</td><td>Holiday village</td><td>Outdoorsy families; closest + prettiest</td></tr>
+          <tr><td class="rt">ES2 · Hotel Spa Mediterráneo Park</td><td>Roses</td><td class="stars">★4.5 (2,302)</td><td>Hotel, semi-AI</td><td>Proper hotel near the border, 3 pools</td></tr>
+          <tr><td class="rt">ES3 · Golden Bahía de Tossa</td><td>Tossa de Mar</td><td class="stars">★4.5 (3,436)</td><td>Full all-inclusive</td><td>Waterslides + a genuinely pretty town</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="grp-h">🇫🇷 France — the club model</h3>
+    <div class="opts">
+      <div class="opt fr">
+        <h4>FR1 · Belambra "Les Ayguades"</h4>
+        <p class="meta">Gruissan · ★3.3 (628) · club, half/full board</p>
+        <p>An active family club on a big sandy beach with good kids'/teens' clubs (3–17) — and it slots neatly into the route, ~1 hr from Collioure, ~45 min from Carcassonne. Reviewers find the site a touch dated, which drags the score.</p>
+        <p class="hu"><b>Heads-up:</b> kids' clubs run during French school holidays only — our late-August dates should fall inside them, but confirm the end date.</p>
+        <p class="flag">+33 4 68 75 17 17 · belambra.fr</p>
+      </div>
+      <div class="opt fr">
+        <h4>FR2 · Belambra "Les Salins"</h4>
+        <p class="meta">Port Camargue · ★4.0 (1,030) · club, premium</p>
+        <p>The best-rated French pick — brand new (2022) with three pools and shallow, kid-friendly beach water. Pairs well with a Rhône-valley route north (Pont du Gard as a bonus) rather than the Carcassonne/Millau line.</p>
+        <p class="hu"><b>Heads-up:</b> pricier tier and a detour east of our drawn route; a few find rooms small. Bring mosquito repellent.</p>
+        <p class="flag">+33 4 66 80 00 10 · belambra.fr</p>
+      </div>
+      <div class="opt fr">
+        <h4>FR3 · Club Med Opio en Provence</h4>
+        <p class="meta">Opio, Provence · ★4.1 (2,620) · true all-inclusive</p>
+        <p>The genuine all-inclusive — meals, drinks, shows, flying trapeze and kids'/teens' clubs from 4 months. A stunning setting with praised food and activities the kids love.</p>
+        <p class="hu"><b>Heads-up:</b> well off the northward route — only sensible if we finish on the Côte d'Azur. Brand premium.</p>
+        <p class="flag">+33 4 93 09 71 00 · clubmed.com</p>
+      </div>
+    </div>
+    <p class="gb-note" style="padding-left:0">Also considered — Belambra "Les Rives de Thau", Balaruc-les-Bains (★3.8, 1,499): a spa-town setting on the Thau lagoon rather than open beach.</p>
+
+    <h3 class="grp-h">🇪🇸 Spain — the Costa Brava</h3>
+    <div class="opts">
+      <div class="opt es">
+        <h4>ES1 · Cala Montjoi, Roses</h4>
+        <p class="meta">Roses · ★4.4 (3,784) · holiday village, buffet</p>
+        <p>A holiday village tucked in a cove inside the Cap de Creus natural park — buffet dining, kids' clubs, its own diving school and hiking straight from the door. ~1 hr south of Collioure, the closest and prettiest, with the legendary elBulli site hidden in the same bay. Families return year after year.</p>
+        <p class="hu"><b>Heads-up:</b> a rocky cove rather than a big sandy beach, and the water runs cooler this far north — more nature-retreat than resort.</p>
+        <p class="flag">+34 972 25 62 12 · montjoi.com</p>
+      </div>
+      <div class="opt es">
+        <h4>ES2 · Hotel Spa Mediterráneo Park, Roses</h4>
+        <p class="meta">Roses · ★4.5 (2,302) · hotel, semi-AI</p>
+        <p>A proper hotel close to the border — three pools, a shin-deep kids' pool with a slide, a kids' club running late, and a good buffet. Spotless, spacious and well-staffed.</p>
+        <p class="hu"><b>Heads-up:</b> the "all-inclusive" really only covers drinks at breakfast — check exactly what the package includes. Crowd skews older and quieter.</p>
+        <p class="flag">+34 972 25 63 00 · hotelsmediterraneo.com</p>
+      </div>
+      <div class="opt es">
+        <h4>ES3 · Golden Bahía de Tossa &amp; Spa</h4>
+        <p class="meta">Tossa de Mar · ★4.5 (3,436) · full all-inclusive</p>
+        <p>Genuine all-inclusive with pirate-ship waterslides, a big entertainment team and a spa — set beside the walled medieval town of Tossa (a castle right on the beach, not a church). Praised for its hard-working animation, cleanliness and relaxed feel, ~10 min walk from the beach.</p>
+        <p class="hu"><b>Heads-up:</b> the furthest south (~2.5 hr past the border) — the biggest dip off-route. Short beds and weak Wi-Fi.</p>
+        <p class="flag">+34 972 34 31 30 · goldenhotels.com</p>
+      </div>
+    </div>
+    <p class="gb-note" style="padding-left:0">Also considered — Hotel Panorama, L'Estartit (★4.3, 2,148), superb for Medes Islands snorkelling with an in-house dive centre; Rosamar Garden Resort, Lloret de Mar (★4.0, 3,712), cheap full-AI with a splash park but in a busy party town.</p>
+
+    <div class="detour" style="margin-top:24px">
+      <b>Booking notes.</b>
+      <ul style="margin:8px 0 0;padding-left:18px">
+        <li><b>Mid-August is peak</b> — the busiest fortnight in Europe. Book early and check minimum-stay rules; some clubs prefer week-long bookings in high summer, which can make a two-night stay tricky.</li>
+        <li><b>French clubs</b> tie kids'-club operation to French school holidays — our dates should qualify, but confirm the end date.</li>
+        <li><b>Routing</b> — the Costa Brava sits just below Aigüestortes, so a Spanish resort slots in after the mountains without backtracking. It could even <em>replace</em> the Collioure/Argelès leg if we'd rather spend the beach days on the cheaper Spanish side.</li>
+        <li>Ratings and review counts are Google, captured July 2026 — they drift, so re-check when booking.</li>
+      </ul>
+    </div>
+  </section>
+      </section>
+      <section class="view" id="view-decisions">
+        <section id="decide">
     <div class="sec-head reveal"><span class="k">Let's talk it through</span></div>
     <h2 class="reveal">Decisions to make together</h2>
     <p class="sub reveal">The plan holds together as-is, but these are the real forks in the road. Worth a chat over dinner before anything's booked.</p>
@@ -382,12 +521,13 @@
       <div class="qrow"><span class="qn">1</span><div><h4>Picos de Europa — in or out? <span class="pref">LP p412</span></h4><p>The guidebook's top outdoor pick — kayaking down the Río Sella and walking past high mountain lakes, right up our street. But it's ~2.5 hr <em>west</em> of Bilbao, the wrong way for a Pyrenees-then-Med trip. Skip it this time, or swap it in and give up a chunk of the French Med?</p></div></div>
       <div class="qrow"><span class="qn">2</span><div><h4>Both mountain parks, or just Ordesa?</h4><p>Two back-to-back mountain moves is the most tiring stretch with the kids. Ordesa is the more jaw-dropping of the two if we want to cut one and slow down.</p></div></div>
       <div class="qrow"><span class="qn">3</span><div><h4>A real hut night, or day-walks with a bail-out?</h4><p>Sleeping in a mountain refuge is a brilliant idea and a big ask for a 7-year-old. Safer bet: day-hikes to a refuge and back, with the overnight as a "if the weather's perfect" bonus.</p></div></div>
-      <div class="qrow"><span class="qn">4</span><div><h4>How many pure beach days?</h4><p>Four nights on the Med gives real downtime after the mountains. Trim to three if we'd rather have a slower drive north.</p></div></div>
+      <div class="qrow"><span class="qn">4</span><div><h4>How many pure beach days?</h4><p>We've pushed the balance south — five nights on the Med, and the run north squeezed to two. That's the most downtime we can carve out after the mountains. Trim a night only if the drive north feels rushed.</p></div></div>
       <div class="qrow"><span class="qn">5</span><div><h4>Disney: one day or two?</h4><p>One day fits the schedule; a second means cutting a night somewhere earlier. Depends how much the kids build it up.</p></div></div>
     </div>
   </section>
-
-  <section id="guide">
+      </section>
+      <section class="view" id="view-guidebook">
+        <section id="guide">
     <div class="sec-head reveal"><span class="k">From the guidebook</span></div>
     <h2 class="reveal">Everything we shortlisted</h2>
     <p class="sub reveal">The picks we logged from the guidebook, with page numbers so we can flip straight to them — the ones on or near this route.</p>
@@ -423,8 +563,9 @@
       <p class="gb-note">Page numbers refer to the guidebook. These are the four "Best … Experiences" spreads that fed the shortlist above.</p>
     </div>
   </section>
-
-  <section id="book">
+      </section>
+      <section class="view" id="view-book">
+        <section id="book">
     <div class="sec-head reveal"><span class="k">Practicalities</span></div>
     <h2 class="reveal">Before we book</h2>
     <p class="sub reveal">Mid-August is the busiest fortnight in Europe — the good pitches and the ferries go early. Tap an item to tick it off (just for this view; it won't save).</p>
@@ -450,17 +591,33 @@
       Disneyland Paris © CetusCetus.
     </p>
   </footer>
-
+      </section>
+    </div>
+  </main>
 </div>
 
 <script>
+  var views = document.querySelectorAll('.view');
+  var navlinks = document.querySelectorAll('.side-nav a');
+  function show(name){
+    var found = false;
+    views.forEach(function(v){ var on = v.id === 'view-' + name; v.classList.toggle('active', on); if(on) found = true; });
+    if(!found){ name = 'overview'; document.getElementById('view-overview').classList.add('active'); }
+    navlinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view') === name); });
+    var active = document.getElementById('view-' + name);
+    active.querySelectorAll('.reveal').forEach(function(el, i){
+      el.classList.remove('in'); void el.offsetWidth;
+      setTimeout(function(){ el.classList.add('in'); }, 30 + i * 45);
+    });
+    window.scrollTo(0, 0);
+  }
+  function fromHash(){ show((location.hash || '#overview').slice(1)); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+
   document.querySelectorAll('.check li').forEach(function(li){
-    li.addEventListener('click',function(){li.classList.toggle('done');});
+    li.addEventListener('click', function(){ li.classList.toggle('done'); });
   });
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
 </body>
 </html>

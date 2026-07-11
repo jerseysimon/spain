@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northern Spain, the Pyrenees &amp; the Med — August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEEEE6; --card:#FBFBF7; --ink:#1E2A28; --ink-soft:#4C5854; --ink-faint:#8A938E;
+    --line:#D7D8CD; --line-soft:#E4E4DA;
+    --sea:#0E7C6B; --sea-bg:#DBEDE8; --sea-ink:#0A4E44;
+    --pine:#4C7A3F; --pine-bg:#E4EDDB; --pine-ink:#325224;
+    --slate:#54627A; --slate-bg:#E1E5EC; --slate-ink:#37435A;
+    --sun:#B67B22;
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --body:'Instrument Sans',system-ui,sans-serif;
+    --mono:'Space Mono',ui-monospace,monospace;
+    --wrap:960px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  a{color:var(--sea-ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  a:hover{border-color:var(--sea)}
+  .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+
+  /* ---- top bar ---- */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(238,238,230,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:52px}
+  header.top .brand{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  header.top nav{display:flex;gap:20px}
+  header.top nav a{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-soft);border:0}
+  header.top nav a:hover{color:var(--ink)}
+  @media(max-width:640px){header.top nav{display:none}}
+
+  /* ---- hero ---- */
+  .hero{padding:72px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--sea);margin:0 0 18px}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,6.6vw,4.4rem);
+    line-height:1.02;letter-spacing:-.02em;margin:0 0 22px;max-width:15ch}
+  .hero .lede{font-size:1.18rem;max-width:52ch;color:var(--ink-soft);margin:0 0 34px}
+  .hero .lede b{color:var(--ink);font-weight:600}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line)}
+  .stat{padding:18px 20px 16px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat .n{font-family:var(--display);font-weight:600;font-size:1.7rem;line-height:1}
+  .stat .l{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:7px}
+  @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}
+    .stat{border-bottom:1px solid var(--line)}
+    .stat:nth-child(2){border-right:0}}
+
+  /* ---- section shell ---- */
+  section{padding:60px 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 8px}
+  .sec-head .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sea)}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);
+    letter-spacing:-.015em;margin:0 0 6px;line-height:1.05}
+  .sub{color:var(--ink-soft);max-width:60ch;margin:0 0 30px}
+
+  /* ---- map ---- */
+  .map-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+  @media(max-width:760px){.map-grid{grid-template-columns:1fr}}
+  .map-frame{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;overflow:hidden}
+  .map-frame svg{display:block;width:100%;height:auto}
+  .keylist{list-style:none;margin:0;padding:0}
+  .keyleg{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--sea-ink);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+  .keyleg:not(:first-child){margin-top:18px}
+  .keyleg .dot{width:11px;height:11px;border-radius:50%;flex:none}
+  .keylist li.stop{display:flex;gap:10px;padding:5px 0;border-bottom:1px dotted var(--line-soft)}
+  .keylist li.stop .num{font-family:var(--mono);font-weight:700;font-size:.82rem;color:var(--ink-faint);width:20px;flex:none}
+  .keylist li.stop .nm{font-weight:500}
+  .keylist li.stop .dt{display:block;font-family:var(--mono);font-size:.64rem;color:var(--ink-faint);letter-spacing:.03em}
+  .maplink{margin-top:20px;font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase}
+
+  /* ---- itinerary route ---- */
+  .route{position:relative}
+  .route:before{content:"";position:absolute;left:23px;top:14px;bottom:14px;width:2px;
+    background:repeating-linear-gradient(var(--line) 0 6px,transparent 6px 12px)}
+  @media(max-width:640px){.route:before{left:19px}}
+  .leg{position:relative;padding:0 0 26px 68px}
+  @media(max-width:640px){.leg{padding-left:56px}}
+  .leg .badge{position:absolute;left:0;top:2px;width:48px;height:48px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;
+    font-size:1.2rem;color:#fff;z-index:2;box-shadow:0 0 0 5px var(--paper)}
+  @media(max-width:640px){.leg .badge{width:40px;height:40px;font-size:1rem}}
+  .leg-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    border-left-width:4px;padding:20px 22px}
+  .leg-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 4px}
+  .leg-top h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin:0;letter-spacing:-.01em}
+  .leg-top .dates{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-soft)}
+  .leg .drive{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 14px}
+  .rows{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px}
+  @media(max-width:560px){.rows{grid-template-columns:1fr}}
+  .rows h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 4px}
+  .rows p{margin:0;font-size:.96rem;line-height:1.55}
+  .tag{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 8px;border-radius:20px;margin-left:auto}
+
+  /* theme colouring */
+  .t-sea .badge{background:var(--sea)} .t-sea .leg-card{border-left-color:var(--sea)}
+  .t-sea .tag{background:var(--sea-bg);color:var(--sea-ink)}
+  .t-pine .badge{background:var(--pine)} .t-pine .leg-card{border-left-color:var(--pine)}
+  .t-pine .tag{background:var(--pine-bg);color:var(--pine-ink)}
+  .t-slate .badge{background:var(--slate)} .t-slate .leg-card{border-left-color:var(--slate)}
+  .t-slate .tag{background:var(--slate-bg);color:var(--slate-ink)}
+
+  /* ---- decisions ---- */
+  .decide{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 4px}
+  .qrow{display:flex;gap:16px;padding:20px 24px;border-bottom:1px solid var(--line-soft)}
+  .qrow:last-child{border-bottom:0}
+  .qrow .qn{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--sun);flex:none;width:28px}
+  .qrow h4{margin:0 0 4px;font-size:1.05rem;font-weight:600}
+  .qrow p{margin:0;color:var(--ink-soft);font-size:.96rem}
+
+  /* ---- checklist ---- */
+  .check{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+  @media(max-width:640px){.check{columns:1}}
+  .check li{break-inside:avoid;display:flex;gap:12px;align-items:flex-start;padding:11px 0;
+    border-bottom:1px solid var(--line-soft);cursor:pointer}
+  .check .box{width:20px;height:20px;border:2px solid var(--slate);border-radius:5px;flex:none;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
+  .check .box svg{width:12px;height:12px;opacity:0;transform:scale(.6);transition:.15s}
+  .check li.done .box{background:var(--sea);border-color:var(--sea)}
+  .check li.done .box svg{opacity:1;transform:scale(1)}
+  .check li.done .txt{color:var(--ink-faint);text-decoration:line-through}
+  .check .txt{font-size:.98rem;line-height:1.5}
+
+  footer{padding:56px 0 72px;border-top:1px solid var(--line);margin-top:20px}
+  footer p{margin:0 0 6px;color:var(--ink-soft)}
+  footer .sign{font-family:var(--display);font-size:1.35rem;color:var(--ink);margin:0 0 14px}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}}
+  @media print{header.top{display:none}.reveal{opacity:1;transform:none}
+    .leg-card,.decide,.map-frame{break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">Bilbao → Calais · Aug 2026</span>
+    <nav>
+      <a href="#map">Route</a>
+      <a href="#plan">Itinerary</a>
+      <a href="#decide">Decisions</a>
+      <a href="#book">Before we book</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero reveal">
+    <p class="eyebrow">Family campervan tour · summer 2026</p>
+    <h1>Northern Spain, the Pyrenees &amp; the Mediterranean</h1>
+    <p class="lede">Off the boat at <b>Bilbao</b> on Saturday 15 August, home from <b>Calais</b> on Monday 31st. An eastward arc: Basque beaches, two high-Pyrenees national parks, the French Med, then a run north to a day at Disneyland. Built around what we love — <b>walking, beaches, good food, and things the kids will actually want to do</b>.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">16</div><div class="l">nights away</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">legs of the trip</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">mountain parks</div></div>
+      <div class="stat"><div class="n">~2,000</div><div class="l">km on the road</div></div>
+    </div>
+  </div>
+
+  <section id="map" class="reveal">
+    <div class="sec-head"><span class="k">The route</span></div>
+    <h2>One long arc, west to east, then north</h2>
+    <p class="sub">No backtracking — we ride the coast, climb into the mountains, drop back to the sea, then head up through France. Colours mark the kind of leg.</p>
+    <div class="map-grid">
+      <div class="map-frame">
+        <svg viewBox="140 40 380 645" role="img" aria-label="Route map from Bilbao through the Pyrenees to the French Mediterranean and up to Calais">
+          <g stroke="#E0E1D6" stroke-width="1">
+            <line x1="174.8" y1="40" x2="174.8" y2="685"/><line x1="222.3" y1="40" x2="222.3" y2="685"/>
+            <line x1="269.8" y1="40" x2="269.8" y2="685"/><line x1="317.3" y1="40" x2="317.3" y2="685"/>
+            <line x1="364.8" y1="40" x2="364.8" y2="685"/><line x1="412.3" y1="40" x2="412.3" y2="685"/>
+            <line x1="459.8" y1="40" x2="459.8" y2="685"/>
+            <line x1="140" y1="66.9" x2="520" y2="66.9"/><line x1="140" y1="135.9" x2="520" y2="135.9"/>
+            <line x1="140" y1="204.9" x2="520" y2="204.9"/><line x1="140" y1="273.9" x2="520" y2="273.9"/>
+            <line x1="140" y1="342.9" x2="520" y2="342.9"/><line x1="140" y1="411.9" x2="520" y2="411.9"/>
+            <line x1="140" y1="480.9" x2="520" y2="480.9"/><line x1="140" y1="549.9" x2="520" y2="549.9"/>
+            <line x1="140" y1="618.9" x2="520" y2="618.9"/>
+          </g>
+          <polyline points="177.8,600.7 223.1,596.9 311.9,644.5 361.2,648.8 463.8,651.5 429.1,604 460.8,543.8 449.5,214 406.5,68.7"
+            fill="none" stroke="#4C5854" stroke-width="2.4" stroke-dasharray="2 7" stroke-linecap="round" stroke-linejoin="round"/>
+          <g font-family="'Space Mono',monospace" font-weight="700" font-size="14" fill="#fff" text-anchor="middle">
+            <g><circle cx="177.8" cy="600.7" r="13" fill="#0E7C6B"/><text x="177.8" y="605.4">1</text></g>
+            <g><circle cx="223.1" cy="596.9" r="13" fill="#0E7C6B"/><text x="223.1" y="601.6">2</text></g>
+            <g><circle cx="311.9" cy="644.5" r="13" fill="#4C7A3F"/><text x="311.9" y="649.2">3</text></g>
+            <g><circle cx="361.2" cy="648.8" r="13" fill="#4C7A3F"/><text x="361.2" y="653.5">4</text></g>
+            <g><circle cx="463.8" cy="651.5" r="13" fill="#0E7C6B"/><text x="463.8" y="656.2">5</text></g>
+            <g><circle cx="429.1" cy="604" r="13" fill="#54627A"/><text x="429.1" y="608.7">6</text></g>
+            <g><circle cx="460.8" cy="543.8" r="13" fill="#54627A"/><text x="460.8" y="548.5">7</text></g>
+            <g><circle cx="449.5" cy="214" r="13" fill="#54627A"/><text x="449.5" y="218.7">8</text></g>
+            <g><circle cx="406.5" cy="68.7" r="13" fill="#54627A"/><text x="406.5" y="73.4">9</text></g>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <ul class="keylist">
+          <li class="keyleg"><span class="dot" style="background:var(--sea)"></span>Basque coast</li>
+          <li class="stop"><span class="num">1</span><span><span class="nm">Bilbao</span><span class="dt">15 Aug · ferry in</span></span></li>
+          <li class="stop"><span class="num">2</span><span><span class="nm">San Sebastián</span><span class="dt">15–17 Aug</span></span></li>
+          <li class="keyleg"><span class="dot" style="background:var(--pine)"></span>High Pyrenees</li>
+          <li class="stop"><span class="num">3</span><span><span class="nm">Torla-Ordesa</span><span class="dt">17–20 Aug</span></span></li>
+          <li class="stop"><span class="num">4</span><span><span class="nm">Espot · Aigüestortes</span><span class="dt">20–22 Aug</span></span></li>
+          <li class="keyleg"><span class="dot" style="background:var(--sea)"></span>French Med</li>
+          <li class="stop"><span class="num">5</span><span><span class="nm">Collioure</span><span class="dt">22–26 Aug</span></span></li>
+          <li class="keyleg"><span class="dot" style="background:var(--slate)"></span>The run north</li>
+          <li class="stop"><span class="num">6</span><span><span class="nm">Carcassonne</span><span class="dt">26 Aug</span></span></li>
+          <li class="stop"><span class="num">7</span><span><span class="nm">Millau viaduct</span><span class="dt">27–28 Aug</span></span></li>
+          <li class="stop"><span class="num">8</span><span><span class="nm">Disneyland Paris</span><span class="dt">29–30 Aug</span></span></li>
+          <li class="stop"><span class="num">9</span><span><span class="nm">Calais</span><span class="dt">31 Aug · ferry home</span></span></li>
+        </ul>
+        <p class="maplink"><a href="https://www.google.com/maps/dir/Bilbao/San+Sebastian/Torla-Ordesa/Espot/Collioure/Carcassonne/Millau/Disneyland+Paris/Calais" target="_blank" rel="noopener">Open the whole route in Google Maps ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="sec-head reveal"><span class="k">The itinerary</span></div>
+    <h2 class="reveal">Six legs, stop by stop</h2>
+    <p class="sub reveal">Each block is a base we settle into for a few nights. Nights are a starting point, not gospel — we can move a day between legs once we see how the kids are travelling.</p>
+
+    <div class="route">
+
+      <div class="leg t-sea reveal">
+        <div class="badge">1</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>Basque Country</h3><span class="dates">15–17 Aug · 2 nights</span><span class="tag">Sea &amp; food</span></div>
+          <p class="drive">Ferry docks Bilbao · San Sebastián ~1 hr along the coast</p>
+          <div class="rows">
+            <div><h4>What we'll do</h4><p>Half a day in Bilbao for the Guggenheim — the building and the giant flower-dog "Puppy" outside. Then La Concha beach and the creaky old funicular fairground up Monte Igueldo in San Sebastián.</p></div>
+            <div><h4>For the kids</h4><p>The clifftop fairground, gentle surf at Zurriola, and a pintxos crawl where you order one, eat, move on — dinner as a treasure hunt.</p></div>
+            <div><h4>Good food</h4><p>Pintxos through the old town, chilled txakoli, and whole turbot grilled over coals down the coast at Getaria.</p></div>
+            <div><h4>Where to stay</h4><p>Campsites along the Basque coast between the two cities; book ahead for mid-August.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg t-pine reveal">
+        <div class="badge">2</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>Ordesa y Monte Perdido</h3><span class="dates">17–20 Aug · 3 nights</span><span class="tag">Mountains</span></div>
+          <p class="drive">~3.5–4 hr drive down to Torla · base in the valley</p>
+          <div class="rows">
+            <div><h4>What we'll do</h4><p>The Ordesa valley walk toward the Cola de Caballo waterfall, past the Gradas de Soaso cascades. The flat lower river section is glorious and we turn back whenever we've had enough.</p></div>
+            <div><h4>Hut-to-hut</h4><p>Refugio de Góriz is the classic overnight — but it's ~800 m of climbing, a real stretch for a 7-year-old. See the decisions below.</p></div>
+            <div><h4>Van logistics</h4><p>In August no private vehicles into the valley — park at Torla and take the shuttle bus to the trailhead.</p></div>
+            <div><h4>Where to stay</h4><p>Camping Río Ara or Camping Ordesa around Torla / Broto. Ternasco (mountain lamb) for dinner.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg t-pine reveal">
+        <div class="badge">3</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>Aigüestortes &amp; Sant Maurici</h3><span class="dates">20–22 Aug · 2 nights</span><span class="tag">Mountains</span></div>
+          <p class="drive">~3 hr of gorgeous mountain driving east · base at Espot</p>
+          <div class="rows">
+            <div><h4>What we'll do</h4><p>A 4×4 jeep-taxi from Espot drops us minutes from the Estany de Sant Maurici, with the twin Encantats peaks behind it. Easy loops around the lake for all four of us.</p></div>
+            <div><h4>For the kids</h4><p>The jeep-taxi ride is half the fun, and the cool mountain air is a blessing if the plains are baking.</p></div>
+            <div><h4>Bigger walks</h4><p>This is the home of the Carros de Foc refuge circuit — proper hut-to-hut country to file away for a future trip.</p></div>
+            <div><h4>Where to stay</h4><p>Campsites around Espot; same vehicle rules — you walk or jeep into the park core.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg t-sea reveal">
+        <div class="badge">4</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>French Mediterranean</h3><span class="dates">22–26 Aug · 4 nights</span><span class="tag">Beach &amp; unwind</span></div>
+          <p class="drive">~2.5–3 hr over the border to the coast · base near Collioure / Argelès</p>
+          <div class="rows">
+            <div><h4>What we'll do</h4><p>Collioure is the payoff — a jewel of a Catalan seaside town with sheltered coves, a waterfront castle (a fortress, not a church) and anchovies everywhere. A boat trip along the Côte Vermeille.</p></div>
+            <div><h4>For the kids</h4><p>Long sandy beaches at Argelès, one of Europe's biggest and most family-geared camping stretches. Beach mornings, siesta, late dinners.</p></div>
+            <div><h4>Good food</h4><p>Seafood and Collioure anchovies; a swim and a taste of sweet Banyuls wine down the coast.</p></div>
+            <div><h4>Where to stay</h4><p>Big family campsites around Argelès-sur-Mer — the busiest to book, so lock it in early.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg t-slate reveal">
+        <div class="badge">5</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>The run north</h3><span class="dates">26–29 Aug · 3 nights en route</span><span class="tag">On the road</span></div>
+          <p class="drive">~8–9 hr to Paris, broken over two easy days</p>
+          <div class="rows">
+            <div><h4>Carcassonne</h4><p>A full-on fairytale walled citadel about 1½ hr from the coast — the kind of castle the kids will remember.</p></div>
+            <div><h4>Millau viaduct</h4><p>The tallest bridge in the world. Stop at the viewpoint below first, then drive across the top.</p></div>
+            <div><h4>For the kids</h4><p>The Tarn gorges below Millau are made for swimming and canoeing — a good place to break the drive.</p></div>
+            <div><h4>Where to stay</h4><p>A night around Millau, then a second hop up through Burgundy or the Loire to within an hour of Disney.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg t-slate reveal">
+        <div class="badge">6</div>
+        <div class="leg-card">
+          <div class="leg-top"><h3>Disneyland &amp; home</h3><span class="dates">29–31 Aug · 2 nights</span><span class="tag">Big finish</span></div>
+          <p class="drive">Park near Marne-la-Vallée · ferry from Calais Monday 31st</p>
+          <div class="rows">
+            <div><h4>What we'll do</h4><p>A full day at Disneyland Paris on the 30th — the treat that carries us through the long drive north.</p></div>
+            <div><h4>Getting home</h4><p>Roughly 3 hr from Disney to Calais on the 31st for the crossing back.</p></div>
+            <div><h4>Where to stay</h4><p>A pitch near the parks for the night before, so we're at the gates when they open.</p></div>
+            <div><h4>Worth deciding</h4><p>One day at Disney, or two? See the decisions below.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="decide">
+    <div class="sec-head reveal"><span class="k">Let's talk it through</span></div>
+    <h2 class="reveal">Decisions to make together</h2>
+    <p class="sub reveal">The plan holds together as-is, but these are the real forks in the road. Worth a chat over dinner before anything's booked.</p>
+    <div class="decide reveal">
+      <div class="qrow"><span class="qn">1</span><div><h4>Picos de Europa — in or out?</h4><p>Spectacular, but it's ~2.5 hr <em>west</em> of Bilbao — the wrong way for a Pyrenees-then-Med trip. Skip it this time, or swap it in and give up a chunk of the French Med?</p></div></div>
+      <div class="qrow"><span class="qn">2</span><div><h4>Both mountain parks, or just Ordesa?</h4><p>Two back-to-back mountain moves is the most tiring stretch with the kids. Ordesa is the more jaw-dropping of the two if we want to cut one and slow down.</p></div></div>
+      <div class="qrow"><span class="qn">3</span><div><h4>A real hut night, or day-walks with a bail-out?</h4><p>Sleeping in a mountain refuge is a brilliant idea and a big ask for a 7-year-old. Safer bet: day-hikes to a refuge and back, with the overnight as a "if the weather's perfect" bonus.</p></div></div>
+      <div class="qrow"><span class="qn">4</span><div><h4>How many pure beach days?</h4><p>Four nights on the Med gives real downtime after the mountains. Trim to three if we'd rather have a slower drive north.</p></div></div>
+      <div class="qrow"><span class="qn">5</span><div><h4>Disney: one day or two?</h4><p>One day fits the schedule; a second means cutting a night somewhere earlier. Depends how much the kids build it up.</p></div></div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="sec-head reveal"><span class="k">Practicalities</span></div>
+    <h2 class="reveal">Before we book</h2>
+    <p class="sub reveal">Mid-August is the busiest fortnight in Europe — the good pitches and the ferries go early. Tap an item to tick it off (just for this view; it won't save).</p>
+    <ul class="check reveal">
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Book campsites for every leg now, especially Argelès and the Disney pitch</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Confirm 2026 vehicle-ban dates and shuttle / jeep times for Ordesa and Aigüestortes</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Reserve the Bilbao ferry out and the Calais crossing home</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Buy Disneyland tickets and a pitch near Marne-la-Vallée for the 29th</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Sort French autoroute tolls — a télépéage tag saves queuing</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Pack for two climates: mountain layers and full beach kit</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Download offline maps and a van-stop app (park4night / France Passion)</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Check the van kit: gas, levelling ramps, EHU adapter, water hose</span></li>
+    </ul>
+  </section>
+
+  <footer class="reveal">
+    <p class="sign">A working draft — nothing's booked yet.</p>
+    <p>Have a scroll, poke holes in it, and let's argue about the beach days over dinner.</p>
+    <p class="mono" style="color:var(--ink-faint);margin-top:14px">Bilbao → Calais · 15–31 August 2026</p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.check li').forEach(function(li){
+    li.addEventListener('click',function(){li.classList.toggle('done');});
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

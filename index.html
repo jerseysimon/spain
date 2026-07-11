@@ -118,6 +118,14 @@
   .t-slate .badge{background:var(--slate)} .t-slate .leg-card{border-left-color:var(--slate)}
   .t-slate .tag{background:var(--slate-bg);color:var(--slate-ink)}
 
+  /* ---- leg photos ---- */
+  .leg-photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:0 0 16px}
+  .leg-photo{margin:0;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .leg-photo img{display:block;width:100%;height:190px;object-fit:cover}
+  .leg-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 12px 7px;
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:#fff;
+    background:linear-gradient(transparent,rgba(20,28,26,.72))}
+
   /* ---- guidebook refs ---- */
   .pref{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.58rem;
     letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;
@@ -270,6 +278,10 @@
         <div class="leg-card">
           <div class="leg-top"><h3>Basque Country</h3><span class="dates">15–17 Aug · 2 nights</span><span class="pref">LP p379</span><span class="tag">Sea &amp; food</span></div>
           <p class="drive">Ferry docks Bilbao · San Sebastián ~1 hr along the coast</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/guggenheim.jpg" alt="The Guggenheim Museum Bilbao lit up at dusk, mirrored in the river" loading="lazy"><figcaption>Guggenheim, Bilbao</figcaption></figure>
+            <figure class="leg-photo"><img src="images/san-sebastian.jpg" alt="The sweeping golden curve of La Concha bay, San Sebastián" loading="lazy"><figcaption>La Concha, San Sebastián</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>What we'll do</h4><p>Half a day in Bilbao for the Guggenheim — the building and the giant flower-dog "Puppy" outside. Then La Concha beach and the creaky old funicular fairground up Monte Igueldo in San Sebastián.</p></div>
             <div><h4>For the kids</h4><p>The clifftop fairground, gentle surf at Zurriola, and a pintxos crawl where you order one, eat, move on — dinner as a treasure hunt.</p></div>
@@ -285,6 +297,9 @@
         <div class="leg-card">
           <div class="leg-top"><h3>Ordesa y Monte Perdido</h3><span class="dates">17–20 Aug · 3 nights</span><span class="pref">LP p340</span><span class="tag">Mountains</span></div>
           <p class="drive">~3.5–4 hr drive down to Torla · base in the valley</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/ordesa.jpg" alt="The green glacial valley of Circo de Soaso below the Monte Perdido cliffs, Ordesa" loading="lazy"><figcaption>Circo de Soaso, Ordesa</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>What we'll do</h4><p>The Ordesa valley walk toward the Cola de Caballo waterfall, past the Gradas de Soaso cascades. The flat lower river section is glorious and we turn back whenever we've had enough.</p></div>
             <div><h4>Hut-to-hut</h4><p>Refugio de Góriz is the classic overnight — but it's ~800 m of climbing, a real stretch for a 7-year-old. See the decisions below.</p></div>
@@ -299,6 +314,9 @@
         <div class="leg-card">
           <div class="leg-top"><h3>Aigüestortes &amp; Sant Maurici</h3><span class="dates">20–22 Aug · 2 nights</span><span class="pref">LP p308</span><span class="tag">Mountains</span></div>
           <p class="drive">~3 hr of gorgeous mountain driving east · base at Espot</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/sant-maurici.jpg" alt="The twin Encantats peaks reflected in the turquoise Estany de Sant Maurici lake" loading="lazy"><figcaption>Estany de Sant Maurici</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>What we'll do</h4><p>A 4×4 jeep-taxi from Espot drops us minutes from the Estany de Sant Maurici, with the twin Encantats peaks behind it. Easy loops around the lake for all four of us.</p></div>
             <div><h4>For the kids</h4><p>The jeep-taxi ride is half the fun, and the cool mountain air is a blessing if the plains are baking.</p></div>
@@ -313,6 +331,9 @@
         <div class="leg-card">
           <div class="leg-top"><h3>French Mediterranean</h3><span class="dates">22–26 Aug · 4 nights</span><span class="tag">Beach &amp; unwind</span></div>
           <p class="drive">~2.5–3 hr over the border to the coast · base near Collioure / Argelès</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/collioure.jpg" alt="Collioure's stone bell tower rising from the sea beside a little beach" loading="lazy"><figcaption>Collioure, Côte Vermeille</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>What we'll do</h4><p>Collioure is the payoff — a jewel of a Catalan seaside town with sheltered coves, a waterfront castle (a fortress, not a church) and anchovies everywhere. A boat trip along the Côte Vermeille.</p></div>
             <div><h4>For the kids</h4><p>Long sandy beaches at Argelès, one of Europe's biggest and most family-geared camping stretches. Beach mornings, siesta, late dinners.</p></div>
@@ -328,6 +349,10 @@
         <div class="leg-card">
           <div class="leg-top"><h3>The run north</h3><span class="dates">26–29 Aug · 3 nights en route</span><span class="tag">On the road</span></div>
           <p class="drive">~8–9 hr to Paris, broken over two easy days</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/carcassonne.jpg" alt="The floodlit medieval walls and towers of the Cité de Carcassonne at dusk" loading="lazy"><figcaption>Carcassonne, floodlit</figcaption></figure>
+            <figure class="leg-photo"><img src="images/millau.jpg" alt="The Millau viaduct spanning a misty valley, its pylons rising above the clouds" loading="lazy"><figcaption>Millau viaduct</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>Carcassonne</h4><p>A full-on fairytale walled citadel about 1½ hr from the coast — the kind of castle the kids will remember.</p></div>
             <div><h4>Millau viaduct</h4><p>The tallest bridge in the world. Stop at the viewpoint below first, then drive across the top.</p></div>
@@ -342,6 +367,9 @@
         <div class="leg-card">
           <div class="leg-top"><h3>Disneyland &amp; home</h3><span class="dates">29–31 Aug · 2 nights</span><span class="tag">Big finish</span></div>
           <p class="drive">Park near Marne-la-Vallée · ferry from Calais Monday 31st</p>
+          <div class="leg-photos">
+            <figure class="leg-photo"><img src="images/disneyland-paris.jpg" alt="Disneyland Paris — the pink Sleeping Beauty Castle rising above the colourful Fantasyland" loading="lazy"><figcaption>Disneyland Paris</figcaption></figure>
+          </div>
           <div class="rows">
             <div><h4>What we'll do</h4><p>A full day at Disneyland Paris on the 30th — the treat that carries us through the long drive north.</p></div>
             <div><h4>Getting home</h4><p>Roughly 3 hr from Disney to Calais on the 31st for the crossing back.</p></div>
@@ -424,6 +452,11 @@
     <p class="sign">A working draft — nothing's booked yet.</p>
     <p>Have a scroll, poke holes in it, and let's argue about the beach days over dinner.</p>
     <p class="mono" style="color:var(--ink-faint);margin-top:14px">Bilbao → Calais · 15–31 August 2026</p>
+    <p class="mono" style="color:var(--ink-faint);margin-top:10px;font-size:.58rem;line-height:1.7">
+      Photos via Wikimedia Commons, CC BY / BY-SA: Guggenheim © PA · La Concha © Ermell · Ordesa © Manolo P ·
+      Sant Maurici © Josep Renalias · Collioure © Palauenc05 · Carcassonne © Diego Delso · Millau © Hans Hagenaars ·
+      Disneyland Paris © CetusCetus.
+    </p>
   </footer>
 
 </div>

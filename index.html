@@ -231,6 +231,16 @@
   .opt p{margin:0 0 8px;font-size:.9rem;line-height:1.5}
   .opt .hu{color:var(--ink-soft)}
   .opt .flag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;color:var(--sea-ink);margin:0}
+
+  /* ---- lightbox ---- */
+  .gb-fig img,.leg-photo img{cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;z-index:100;background:rgba(20,28,26,.88);
+    display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:96vw;max-height:90vh;border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+  .lightbox .lb-cap{position:absolute;bottom:16px;left:0;right:0;text-align:center;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .lightbox .lb-x{position:absolute;top:14px;right:20px;color:rgba(255,255,255,.75);font-size:1.8rem;line-height:1}
 </style>
 </head>
 <body>
@@ -572,12 +582,7 @@
     <ul class="check reveal">
       <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Book campsites for every leg now, especially Argelès and the Disney pitch</span></li>
       <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Confirm 2026 vehicle-ban dates and shuttle / jeep times for Ordesa and Aigüestortes</span></li>
-      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Reserve the Bilbao ferry out and the Calais crossing home</span></li>
       <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Buy Disneyland tickets and a pitch near Marne-la-Vallée for the 29th</span></li>
-      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Sort French autoroute tolls — a télépéage tag saves queuing</span></li>
-      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Pack for two climates: mountain layers and full beach kit</span></li>
-      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Download offline maps and a van-stop app (park4night / France Passion)</span></li>
-      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M4 12l5 5L20 6"/></svg></span><span class="txt">Check the van kit: gas, levelling ramps, EHU adapter, water hose</span></li>
     </ul>
   </section>
 
@@ -595,6 +600,8 @@
     </div>
   </main>
 </div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><span class="lb-x">×</span><img alt=""><span class="lb-cap"></span></div>
 
 <script>
   var views = document.querySelectorAll('.view');
@@ -618,6 +625,21 @@
   document.querySelectorAll('.check li').forEach(function(li){
     li.addEventListener('click', function(){ li.classList.toggle('done'); });
   });
+
+  // lightbox for guidebook spreads and leg photos
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.lb-cap');
+  document.querySelectorAll('.gb-fig img, .leg-photo img').forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
+      var fig = img.closest('figure'), cap = fig && fig.querySelector('figcaption');
+      lbCap.textContent = cap ? cap.textContent : '';
+      lb.classList.add('open');
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); }
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 </script>
 </body>
 </html>

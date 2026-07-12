@@ -236,6 +236,15 @@
   .opt .hu{color:var(--ink-soft)}
   .opt .flag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;color:var(--sea-ink);margin:0}
 
+  /* ---- friends' tips ---- */
+  .tips{display:grid;gap:12px}
+  .tip{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-left-color:var(--sun);
+    border-radius:12px;padding:14px 18px;display:flex;gap:8px 18px;align-items:baseline;flex-wrap:wrap}
+  .tip .tip-loc{font-family:var(--display);font-weight:600;font-size:1.05rem;flex:none;min-width:150px}
+  .tip p{margin:0;color:var(--ink-soft);font-size:.96rem;line-height:1.5;flex:1;min-width:220px}
+  .tip.more{background:transparent;border:1px dashed var(--line)}
+  .tip.more p{color:var(--ink-faint);font-style:italic}
+
   /* ---- lightbox ---- */
   .gb-fig img,.leg-photo img{cursor:zoom-in}
   .lightbox{position:fixed;inset:0;z-index:100;background:rgba(20,28,26,.88);
@@ -261,6 +270,7 @@
         <a href="#decisions" data-view="decisions">Decisions</a>
         <a href="#guidebook" data-view="guidebook">Guidebook</a>
         <a href="#ideas" data-view="ideas">Ideas</a>
+        <a href="#tips" data-view="tips">Alex &amp; Anna</a>
         <a href="#book" data-view="book">Before we book</a>
       </nav>
       <p class="side-foot mono">A working draft —<br>nothing's booked yet</p>
@@ -660,6 +670,18 @@
         </figure>
       </div>
       <p class="gb-note">Tap a spread to read it full-size. None of this is in the itinerary yet — it's the list for shuffling a day, or the next trip.</p>
+    </div>
+  </section>
+      </section>
+      <section class="view" id="view-tips">
+        <section id="tips" class="reveal">
+    <div class="sec-head"><span class="k">From Alex &amp; Anna</span></div>
+    <h2>Friends who know these coasts</h2>
+    <p class="sub">Alex and Anna have done the northern coast and the Costa Brava — they're putting a proper list together. These are the early headlines; more to drop in as it comes.</p>
+    <div class="tips">
+      <div class="tip"><span class="tip-loc">San Sebastián</span><p>Their spot for <b>tapas</b> — work the pintxos bars through the Parte Vieja old town. (Leg 1.)</p></div>
+      <div class="tip"><span class="tip-loc">Santander</span><p>Go here for the <b>seafood</b> — the standout on the north coast, Santander eastward.</p></div>
+      <div class="tip more"><p>More north-coast (Santander east) and Costa Brava highlights to come once Alex &amp; Anna share the full list.</p></div>
     </div>
   </section>
       </section>
